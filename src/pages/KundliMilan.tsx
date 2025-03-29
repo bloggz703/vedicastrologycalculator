@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import LocationSearch from '../components/LocationSearch';
 import Navigation from '../components/Navigation';
 import { calculateKundliMilanScore, getCompatibilityInterpretation } from '../utils/kundliCalculations';
+import { Helmet } from 'react-helmet';
 import "react-datepicker/dist/react-datepicker.css";
 
 interface Location {
@@ -286,214 +287,237 @@ function KundliMilanCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
-      <Navigation />
-      
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-sky-900 text-center mb-12">Kundli Milan</h1>
+    <>
+      <Helmet>
+        <title>Kundli Milan</title>
+        <meta name="description" content="Kundli milan - Calculate marriage compatibility based on Vedic astrology. Get detailed analysis of relationship harmony across 8 key aspects." />
+        <link rel="canonical" href="https://vedicastrologycalculator.com/kundli-milan" />
+      </Helmet>
 
-        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-12">
-          {!matchResult ? (
-            <>
-              <div className="mb-6">
-                <div className="h-2 bg-sky-100 rounded">
-                  <div 
-                    className="h-2 bg-sky-500 rounded transition-all duration-300"
-                    style={{ width: `${(currentStep / formSteps.length) * 100}%` }}
-                  ></div>
+      <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
+        <Navigation />
+        
+        <main className="container mx-auto px-4 py-8">
+          <h1 className="text-4xl font-bold text-sky-900 text-center mb-12">Kundli Milan</h1>
+
+          <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-12">
+            {!matchResult ? (
+              <>
+                <div className="mb-6">
+                  <div className="h-2 bg-sky-100 rounded">
+                    <div 
+                      className="h-2 bg-sky-500 rounded transition-all duration-300"
+                      style={{ width: `${(currentStep / formSteps.length) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-sky-600/80 mt-2 text-sm">Step {currentStep} of {formSteps.length}</p>
                 </div>
-                <p className="text-sky-600/80 mt-2 text-sm">Step {currentStep} of {formSteps.length}</p>
-              </div>
 
-              <h2 className="text-xl font-semibold text-sky-900 mb-2">
-                {formSteps[currentStep - 1].title}
-              </h2>
-              <p className="text-sky-600/60 text-sm mb-4">
-                {formSteps[currentStep - 1].description}
+                <h2 className="text-xl font-semibold text-sky-900 mb-2">
+                  {formSteps[currentStep - 1].title}
+                </h2>
+                <p className="text-sky-600/60 text-sm mb-4">
+                  {formSteps[currentStep - 1].description}
+                </p>
+
+                {renderCurrentStep()}
+
+                {error && (
+                  <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-lg">
+                    {error}
+                  </div>
+                )}
+
+                <div className="flex justify-between">
+                  <button
+                    onClick={handlePrevious}
+                    disabled={currentStep === 1}
+                    className={`text-sky-600/60 hover:text-sky-900 transition-colors flex items-center gap-2 ${
+                      currentStep === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                    Previous
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="bg-sky-500 text-white px-4 py-2 rounded hover:bg-sky-600 transition-colors flex items-center gap-2"
+                  >
+                    {currentStep === formSteps.length ? 'Calculate Match' : 'Next'}
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </>
+            ) : (
+              renderMatchResult()
+            )}
+          </div>
+
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-4">How Does a Kundli Milan Work?</h2>
+            <p className="text-sky-600 mb-6">
+              A Kundli Milan operates based on precise astrological calculations. Here's a step-by-step breakdown of how it works:
+            </p>
+            <ul className="space-y-4 text-sky-600">
+              <li><strong className="text-sky-900">Input Birth Details:</strong> You enter the birth date, time, and location for both individuals.</li>
+              <li><strong className="text-sky-900">Generate Kundlis:</strong> The tool calculates the birth charts (Kundlis) based on the provided details.</li>
+              <li><strong className="text-sky-900">Match The Gunas:</strong> It analyzes the positions of the Moon and other planets to determine compatibility across various aspects like mental harmony, temperament, and fortune.</li>
+              <li><strong className="text-sky-900">Calculate Overall Score:</strong> The calculator generates a compatibility score out of 36 points (Gunas) along with a detailed interpretation.</li>
+            </ul>
+            <p className="text-sky-600 mt-4">
+              For example, if two individuals have Moon signs that are harmoniously placed, they might score well in the mental compatibility category, contributing to a higher overall match percentage.
+            </p>
+          </section>
+
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">What is Kundli Milan?</summary>
+                <p className="mt-4 text-sky-600">
+                  Kundli Milan is a Vedic astrology practice that compares the birth charts (kundlis) of two individuals to assess their compatibility for marriage. It analyzes various aspects like mental harmony, temperament, longevity, and fortune to generate a comprehensive compatibility score.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">How accurate is Kundli Milan?</summary>
+                <p className="mt-4 text-sky-600">
+                  Kundli Milan is considered highly accurate when based on precise birth details. The accuracy depends on having the correct birth time, date, and location for both individuals. The system has been used successfully for centuries in Vedic astrology to assess marital compatibility.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">What is a good Kundli Milan score?</summary>
+                <p className="mt-4 text-sky-600">
+                  In Kundli Milan, the total score is out of 36 points (Gunas). A score of 18 or above is considered acceptable for marriage. Scores above 24 indicate good compatibility, while scores above 32 suggest excellent compatibility. However, even with lower scores, marriages can succeed with understanding and effort.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">Do I need exact birth times for Kundli Milan?</summary>
+                <p className="mt-4 text-sky-600">
+                  Yes, exact birth times are crucial for accurate Kundli Milan calculations. Even a difference of a few minutes can change the planetary positions and affect the overall compatibility score. It's recommended to use birth times from official documents or birth certificates.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">Can Kundli Milan predict the success of a marriage?</summary>
+                <p className="mt-4 text-sky-600">
+                  While Kundli Milan provides valuable insights into compatibility between partners, it should not be considered the sole determinant of marital success. A successful marriage also depends on factors like mutual understanding, commitment, and the effort both partners put into the relationship.
+                </p>
+              </details>
+            </div>
+          </section>
+
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Kundli Milan: The Ancient Art of Compatibility in Vedic Astrology</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">
+                In the realm of Vedic astrology, Kundli Milan, also known as Kundali matching or Guna Milan, is a sacred practice used to assess the compatibility between two individuals, particularly for marriage. Rooted in ancient Hindu traditions, this practice involves analyzing the kundalis (birth charts) of both partners to determine their alignment in terms of personality, emotions, and life goals. Kundli Milan is not just a ritual; it is a profound science that helps couples understand their strengths, challenges, and potential for a harmonious relationship. In this article, we will explore the significance of Kundli Milan, how it works, and why it remains a cornerstone of Vedic matchmaking.
               </p>
+            </div>
+          </section>
 
-              {renderCurrentStep()}
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">What is Kundli Milan?</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">
+                Kundli Milan is the process of comparing the kundalis of two individuals to evaluate their compatibility. The term Kundli Milan originates from the Hindi language, where "kundli" means birth chart and "milan" means matching. This practice is deeply rooted in Vedic astrology and is widely used in Hindu cultures to ensure a successful and prosperous marriage.
+              </p>
+              <p className="mb-4">
+                The process involves analyzing various aspects of the kundalis, such as the positions of the nakshatras (lunar constellations), rasi (moon signs), and planetary alignments. The most common method used in Kundli Milan is the Ashtakoota Milan system, which evaluates compatibility based on eight key factors, or "kootas."
+              </p>
+            </div>
+          </section>
 
-              {error && (
-                <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-lg">
-                  {error}
-                </div>
-              )}
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">The Role of Guna Milan in Kundli Matching</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">
+                At the heart of Kundli Milan lies the Guna Milan system, which assigns points based on the compatibility of the kundalis. The maximum score in Guna Milan is 36, and a score of 18 or higher is generally considered favorable for marriage. Here's a breakdown of the eight kootas in the Ashtakoota Milan system:
+              </p>
+              <ul className="list-disc list-inside space-y-2 mb-4">
+                <li>Varna Milan: Evaluates the spiritual compatibility of the partners.</li>
+                <li>Vashya Milan: Assesses the level of mutual attraction and control.</li>
+                <li>Tara Milan: Examines the health and well-being of the couple.</li>
+                <li>Yoni Milan: Analyzes physical and sexual compatibility.</li>
+                <li>Graha Maitri Milan: Determines mental and emotional compatibility.</li>
+                <li>Gana Milan: Evaluates the temperament and nature of the partners.</li>
+                <li>Bhakoot Milan: Assesses financial stability and family happiness.</li>
+                <li>Nadi Milan: Checks genetic compatibility and the potential for progeny.</li>
+              </ul>
+              <p>Among these, Nadi Milan is considered the most important, as it ensures the health and well-being of future generations.</p>
+            </div>
+          </section>
 
-              <div className="flex justify-between">
-                <button
-                  onClick={handlePrevious}
-                  disabled={currentStep === 1}
-                  className={`text-sky-600/60 hover:text-sky-900 transition-colors flex items-center gap-2 ${
-                    currentStep === 1 ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Previous
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="bg-sky-500 text-white px-4 py-2 rounded hover:bg-sky-600 transition-colors flex items-center gap-2"
-                >
-                  {currentStep === formSteps.length ? 'Calculate Match' : 'Next'}
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            </>
-          ) : (
-            renderMatchResult()
-          )}
-        </div>
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Why is Kundli Milan Important?</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">
+                Kundli Milan is more than just a traditional ritual; it is a scientific approach to understanding the dynamics of a relationship. Here are some key reasons why Kundli Milan is essential:
+              </p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Ensures Compatibility: By analyzing the kundalis, Kundli Milan helps determine whether the partners are compatible in terms of personality, emotions, and life goals.</li>
+                <li>Identifies Challenges: The process highlights potential challenges in the relationship, allowing couples to address them proactively.</li>
+                <li>Promotes Harmony: A high Guna Milan score indicates a harmonious and prosperous marriage.</li>
+                <li>Cultural Significance: In Hindu culture, Kundli Milan is considered a sacred practice that ensures the blessings of the divine for a successful marriage.</li>
+              </ul>
+            </div>
+          </section>
 
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-4">How Does a Kundli Milan Work?</h2>
-          <p className="text-sky-600 mb-6">
-            A Kundli Milan operates based on precise astrological calculations. Here's a step-by-step breakdown of how it works:
-          </p>
-          <ul className="space-y-4 text-sky-600">
-            <li><strong className="text-sky-900">Input Birth Details:</strong> You enter the birth date, time, and location for both individuals.</li>
-            <li><strong className="text-sky-900">Generate Kundlis:</strong> The tool calculates the birth charts (Kundlis) based on the provided details.</li>
-            <li><strong className="text-sky-900">Match The Gunas:</strong> It analyzes the positions of the Moon and other planets to determine compatibility across various aspects like mental harmony, temperament, and fortune.</li>
-            <li><strong className="text-sky-900">Calculate Overall Score:</strong> The calculator generates a compatibility score out of 36 points (Gunas) along with a detailed interpretation.</li>
-          </ul>
-          <p className="text-sky-600 mt-4">
-            For example, if two individuals have Moon signs that are harmoniously placed, they might score well in the mental compatibility category, contributing to a higher overall match percentage.
-          </p>
-        </section>
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">How Does Kundli Milan Work?</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">The process of Kundli Milan involves several steps:</p>
+              <ul className="list-disc list-inside space-y-2 mb-4">
+                <li>Preparation of Kundalis: The birth charts of both individuals are prepared based on their date, time, and place of birth.</li>
+                <li>Analysis of Planetary Positions: The positions of the planets, nakshatras, and rasi are analyzed to determine their influence on the individuals.</li>
+                <li>Guna Milan: The Ashtakoota Milan system is used to evaluate compatibility based on the eight kootas.</li>
+                <li>Interpretation of Results: The final score is interpreted to determine the level of compatibility and the potential for a successful marriage.</li>
+              </ul>
+              <p>For example, if the Guna Milan score is 28 out of 36, it indicates a high level of compatibility, while a score below 18 may suggest potential challenges.</p>
+            </div>
+          </section>
 
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            <button className="w-full text-left p-4 bg-white rounded-lg text-sky-900 hover:bg-sky-50 transition-colors shadow-sm">
-              What is Kundli Milan?
-            </button>
-            <button className="w-full text-left p-4 bg-white rounded-lg text-sky-900 hover:bg-sky-50 transition-colors shadow-sm">
-              How accurate is Kundli Milan?
-            </button>
-            <button className="w-full text-left p-4 bg-white rounded-lg text-sky-900 hover:bg-sky-50 transition-colors shadow-sm">
-              What is a good Kundli Milan score?
-            </button>
-            <button className="w-full text-left p-4 bg-white rounded-lg text-sky-900 hover:bg-sky-50 transition-colors shadow-sm">
-              Do I need exact birth times for Kundli Milan?
-            </button>
-            <button className="w-full text-left p-4 bg-white rounded-lg text-sky-900 hover:bg-sky-50 transition-colors shadow-sm">
-              Can Kundli Milan predict the success of a marriage?
-            </button>
-          </div>
-        </section>
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Modern Tools for Kundli Milan</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">
+                With advancements in technology, Kundli Milan has become more accessible than ever. Here are some modern tools that simplify the process:
+              </p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Free Kundli Milan: Many websites offer free Kundli Milan services, allowing users to input their birth details and receive a compatibility report.</li>
+                <li>Kundli Software: Advanced kundli software provides detailed analysis and interpretations of the kundalis.</li>
+                <li>Kundli Maker App: Mobile applications like Google Play Kundali and Hindi app options make it easy to generate kundalis and perform Guna Milan on the go.</li>
+                <li>Online Kundali Matching: Platforms offering online Kundali matching provide instant results and detailed reports.</li>
+              </ul>
+            </div>
+          </section>
 
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Kundli Milan: The Ancient Art of Compatibility in Vedic Astrology</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">
-              In the realm of Vedic astrology, Kundli Milan, also known as Kundali matching or Guna Milan, is a sacred practice used to assess the compatibility between two individuals, particularly for marriage. Rooted in ancient Hindu traditions, this practice involves analyzing the kundalis (birth charts) of both partners to determine their alignment in terms of personality, emotions, and life goals. Kundli Milan is not just a ritual; it is a profound science that helps couples understand their strengths, challenges, and potential for a harmonious relationship. In this article, we will explore the significance of Kundli Milan, how it works, and why it remains a cornerstone of Vedic matchmaking.
-            </p>
-          </div>
-        </section>
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Common Misconceptions About Kundli Milan</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">
+                Despite its significance, Kundli Milan is often misunderstood. Here are some common misconceptions and the truth behind them:
+              </p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>It's Only for Marriage: While Kundli Milan is primarily used for marriage, it can also be applied to business partnerships and other relationships.</li>
+                <li>A Low Score Means No Marriage: A low Guna Milan score does not necessarily mean the relationship is doomed. It simply highlights areas that may require attention and effort.</li>
+                <li>It's Superstitious: Kundli Milan is based on the principles of Vedic astrology, which is a scientific and time-tested system.</li>
+              </ul>
+            </div>
+          </section>
 
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">What is Kundli Milan?</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">
-              Kundli Milan is the process of comparing the kundalis of two individuals to evaluate their compatibility. The term Kundli Milan originates from the Hindi language, where "kundli" means birth chart and "milan" means matching. This practice is deeply rooted in Vedic astrology and is widely used in Hindu cultures to ensure a successful and prosperous marriage.
-            </p>
-            <p className="mb-4">
-              The process involves analyzing various aspects of the kundalis, such as the positions of the nakshatras (lunar constellations), rasi (moon signs), and planetary alignments. The most common method used in Kundli Milan is the Ashtakoota Milan system, which evaluates compatibility based on eight key factors, or "kootas."
-            </p>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">The Role of Guna Milan in Kundli Matching</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">
-              At the heart of Kundli Milan lies the Guna Milan system, which assigns points based on the compatibility of the kundalis. The maximum score in Guna Milan is 36, and a score of 18 or higher is generally considered favorable for marriage. Here's a breakdown of the eight kootas in the Ashtakoota Milan system:
-            </p>
-            <ul className="list-disc list-inside space-y-2 mb-4">
-              <li>Varna Milan: Evaluates the spiritual compatibility of the partners.</li>
-              <li>Vashya Milan: Assesses the level of mutual attraction and control.</li>
-              <li>Tara Milan: Examines the health and well-being of the couple.</li>
-              <li>Yoni Milan: Analyzes physical and sexual compatibility.</li>
-              <li>Graha Maitri Milan: Determines mental and emotional compatibility.</li>
-              <li>Gana Milan: Evaluates the temperament and nature of the partners.</li>
-              <li>Bhakoot Milan: Assesses financial stability and family happiness.</li>
-              <li>Nadi Milan: Checks genetic compatibility and the potential for progeny.</li>
-            </ul>
-            <p>Among these, Nadi Milan is considered the most important, as it ensures the health and well-being of future generations.</p>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Why is Kundli Milan Important?</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">
-              Kundli Milan is more than just a traditional ritual; it is a scientific approach to understanding the dynamics of a relationship. Here are some key reasons why Kundli Milan is essential:
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-              <li>Ensures Compatibility: By analyzing the kundalis, Kundli Milan helps determine whether the partners are compatible in terms of personality, emotions, and life goals.</li>
-              <li>Identifies Challenges: The process highlights potential challenges in the relationship, allowing couples to address them proactively.</li>
-              <li>Promotes Harmony: A high Guna Milan score indicates a harmonious and prosperous marriage.</li>
-              <li>Cultural Significance: In Hindu culture, Kundli Milan is considered a sacred practice that ensures the blessings of the divine for a successful marriage.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">How Does Kundli Milan Work?</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">The process of Kundli Milan involves several steps:</p>
-            <ul className="list-disc list-inside space-y-2 mb-4">
-              <li>Preparation of Kundalis: The birth charts of both individuals are prepared based on their date, time, and place of birth.</li>
-              <li>Analysis of Planetary Positions: The positions of the planets, nakshatras, and rasi are analyzed to determine their influence on the individuals.</li>
-              <li>Guna Milan: The Ashtakoota Milan system is used to evaluate compatibility based on the eight kootas.</li>
-              <li>Interpretation of Results: The final score is interpreted to determine the level of compatibility and the potential for a successful marriage.</li>
-            </ul>
-            <p>For example, if the Guna Milan score is 28 out of 36, it indicates a high level of compatibility, while a score below 18 may suggest potential challenges.</p>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Modern Tools for Kundli Milan</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">
-              With advancements in technology, Kundli Milan has become more accessible than ever. Here are some modern tools that simplify the process:
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-              <li>Free Kundli Milan: Many websites offer free Kundli Milan services, allowing users to input their birth details and receive a compatibility report.</li>
-              <li>Kundli Software: Advanced kundli software provides detailed analysis and interpretations of the kundalis.</li>
-              <li>Kundli Maker App: Mobile applications like Google Play Kundali and Hindi app options make it easy to generate kundalis and perform Guna Milan on the go.</li>
-              <li>Online Kundali Matching: Platforms offering online Kundali matching provide instant results and detailed reports.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Common Misconceptions About Kundli Milan</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">
-              Despite its significance, Kundli Milan is often misunderstood. Here are some common misconceptions and the truth behind them:
-            </p>
-            <ul className="list-disc list-inside space-y-2">
-              <li>It's Only for Marriage: While Kundli Milan is primarily used for marriage, it can also be applied to business partnerships and other relationships.</li>
-              <li>A Low Score Means No Marriage: A low Guna Milan score does not necessarily mean the relationship is doomed. It simply highlights areas that may require attention and effort.</li>
-              <li>It's Superstitious: Kundli Milan is based on the principles of Vedic astrology, which is a scientific and time-tested system.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Conclusion</h2>
-          <div className="text-sky-600">
-            <p className="mb-4">
-              Kundli Milan is a profound and time-honored practice that plays a crucial role in Vedic astrology and Hindu culture. By analyzing the kundalis of two individuals, it provides valuable insights into their compatibility and potential for a harmonious relationship. Whether you use a free Kundli Milan service, kundli software, or consult an expert kundli astrologer, this practice can help you make informed decisions about your marriage and relationships.
-            </p>
-            <p>
-              So, take the first step towards a prosperous and harmonious relationship by exploring the ancient art of Kundli Milan. With modern tools and traditional wisdom, you can unlock the secrets of your kundali and embark on a journey of love, understanding, and lifelong happiness.
-            </p>
-          </div>
-        </section>
-      </main>
-    </div>
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Conclusion</h2>
+            <div className="text-sky-600">
+              <p className="mb-4">
+                Kundli Milan is a profound and time-honored practice that plays a crucial role in Vedic astrology and Hindu culture. By analyzing the kundalis of two individuals, it provides valuable insights into their compatibility and potential for a harmonious relationship. Whether you use a free Kundli Milan service, kundli software, or consult an expert kundli astrologer, this practice can help you make informed decisions about your marriage and relationships.
+              </p>
+              <p>
+                So, take the first step towards a prosperous and harmonious relationship by exploring the ancient art of Kundli Milan. With modern tools and traditional wisdom, you can unlock the secrets of your kundali and embark on a journey of love, understanding, and lifelong happiness.
+              </p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
   );
 }
 
