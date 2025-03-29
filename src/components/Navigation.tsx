@@ -42,11 +42,11 @@ function Navigation() {
                   <Compass className="h-4 w-4" />
                   Rising Sign Calculator
                 </Link>
-                <Link to="/moon-sign" className="nav-dropdown-item">
+                <Link to="/moon-sign-calculator" className="nav-dropdown-item">
                   <Moon className="h-4 w-4" />
                   Moon Sign Calculator
                 </Link>
-                <Link to="/sun-sign" className="nav-dropdown-item">
+                <Link to="/sun-sign-calculator" className="nav-dropdown-item">
                   <Sun className="h-4 w-4" />
                   Sun Sign Calculator
                 </Link>
@@ -61,15 +61,15 @@ function Navigation() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               <div className="nav-dropdown">
-                <Link to="/kundli-milan" className="nav-dropdown-item">
+                <Link to="/kundli-milan-calculator" className="nav-dropdown-item">
                   <Heart className="h-4 w-4" />
                   Kundli Milan Calculator
                 </Link>
-                <Link to="/name-compatibility" className="nav-dropdown-item">
+                <Link to="/name-compatibility-calculator" className="nav-dropdown-item">
                   <Users className="h-4 w-4" />
-                  Name Compatibility
+                  Name Compatibility Calculator
                 </Link>
-                <Link to="/upapada-lagna" className="nav-dropdown-item">
+                <Link to="/upapada-lagna-calculator" className="nav-dropdown-item">
                   <Star className="h-4 w-4" />
                   Upapada Lagna Calculator
                 </Link>
@@ -84,15 +84,15 @@ function Navigation() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               <div className="nav-dropdown">
-                <Link to="/nakshatra" className="nav-dropdown-item">
+                <Link to="/nakshatra-calculator" className="nav-dropdown-item">
                   <Star className="h-4 w-4" />
                   Nakshatra Calculator
                 </Link>
-                <Link to="/dasha" className="nav-dropdown-item">
+                <Link to="/dasha-calculator" className="nav-dropdown-item">
                   <Calculator className="h-4 w-4" />
                   Dasha Calculator
                 </Link>
-                <Link to="/atmakaraka" className="nav-dropdown-item">
+                <Link to="/atmakaraka-calculator" className="nav-dropdown-item">
                   <Star className="h-4 w-4" />
                   Atmakaraka Calculator
                 </Link>
@@ -107,7 +107,7 @@ function Navigation() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               <div className="nav-dropdown">
-                <Link to="/yoga" className="nav-dropdown-item">
+                <Link to="/yoga-calculator" className="nav-dropdown-item">
                   <Calculator className="h-4 w-4" />
                   Yoga Calculator
                 </Link>
@@ -166,8 +166,8 @@ function Navigation() {
                   </h3>
                   <div className="space-y-2 pl-7">
                     <Link to="/rising-sign-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Rising Sign Calculator</Link>
-                    <Link to="/moon-sign" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Moon Sign Calculator</Link>
-                    <Link to="/sun-sign" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Sun Sign Calculator</Link>
+                    <Link to="/moon-sign-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Moon Sign Calculator</Link>
+                    <Link to="/sun-sign-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Sun Sign Calculator</Link>
                   </div>
                 </div>
 
@@ -177,9 +177,9 @@ function Navigation() {
                     Relationship
                   </h3>
                   <div className="space-y-2 pl-7">
-                    <Link to="/kundli-milan" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Kundli Milan Calculator</Link>
-                    <Link to="/name-compatibility" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Name Compatibility</Link>
-                    <Link to="/upapada-lagna" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Upapada Lagna Calculator</Link>
+                    <Link to="/kundli-milan-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Kundli Milan Calculator</Link>
+                    <Link to="/name-compatibility-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Name Compatibility Calculator</Link>
+                    <Link to="/upapada-lagna-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Upapada Lagna Calculator</Link>
                   </div>
                 </div>
 
@@ -189,9 +189,9 @@ function Navigation() {
                     Nakshatras
                   </h3>
                   <div className="space-y-2 pl-7">
-                    <Link to="/nakshatra" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Nakshatra Calculator</Link>
-                    <Link to="/dasha" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Dasha Calculator</Link>
-                    <Link to="/atmakaraka" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Atmakaraka Calculator</Link>
+                    <Link to="/nakshatra-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Nakshatra Calculator</Link>
+                    <Link to="/dasha-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Dasha Calculator</Link>
+                    <Link to="/atmakaraka-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Atmakaraka Calculator</Link>
                   </div>
                 </div>
 
@@ -201,7 +201,7 @@ function Navigation() {
                     Yoga
                   </h3>
                   <div className="space-y-2 pl-7">
-                    <Link to="/yoga" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Yoga Calculator</Link>
+                    <Link to="/yoga-calculator" className="block text-sky-200 hover:text-white" onClick={() => setIsMenuOpen(false)}>Yoga Calculator</Link>
                   </div>
                 </div>
 

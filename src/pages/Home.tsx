@@ -31,7 +31,7 @@ function HomePage() {
               category="Core"
               extraInfo="Discover your true Vedic Sun Sign and understand how it influences your core personality, ego, and life purpose."
               icon={Sun}
-              link="/sun-sign"
+              link="/sun-sign-calculator"
             />
             <CalculatorCard
               title="Moon Sign"
@@ -40,7 +40,7 @@ function HomePage() {
               category="Core"
               extraInfo="Understand your emotional nature, instincts, and inner self through your Moon Sign placement."
               icon={Moon}
-              link="/moon-sign"
+              link="/moon-sign-calculator"
             />
             <CalculatorCard
               title="Rising Sign"
@@ -49,7 +49,7 @@ function HomePage() {
               category="Core"
               extraInfo="Learn about your outward personality and how others perceive you through your Rising Sign."
               icon={Compass}
-              link="/rising-sign"
+              link="/rising-sign-calculator"
             />
           </div>
         </section>
@@ -62,7 +62,7 @@ function HomePage() {
             category="Popular"
             extraInfo="Discover your birth Nakshatra, pada, deity, and qualities. Learn how these influence your personality, strengths, and life path."
             icon={Star}
-            link="/nakshatra"
+            link="/nakshatra-calculator"
           />
           <CalculatorCard
             title="Dasha Calculator"
@@ -71,7 +71,7 @@ function HomePage() {
             category="Advanced"
             extraInfo="Understand the planetary periods that influence different stages of your life. Learn about major and sub-periods and their effects."
             icon={Compass}
-            link="/dasha"
+            link="/dasha-calculator"
           />
           <CalculatorCard
             title="Navamsa Chart"
@@ -80,7 +80,7 @@ function HomePage() {
             category="New"
             extraInfo="Explore the ninth harmonic division chart that reveals insights about marriage, spiritual life, and hidden strengths in your horoscope."
             icon={Brain}
-            link="/navamsa"
+            link="/navamsa-calculator"
           />
           <CalculatorCard
             title="Name Compatibility"
@@ -89,7 +89,7 @@ function HomePage() {
             category="Popular"
             extraInfo="Discover how well your names align to reveal potential relationship dynamics, strengths, and challenges for a harmonious partnership."
             icon={Heart}
-            link="/name-compatibility"
+            link="/name-compatibility-calculator"
           />
         </div>
 
@@ -101,7 +101,7 @@ function HomePage() {
             category="Traditional"
             extraInfo="Analyze compatibility between two birth charts using traditional Vedic astrology principles. Get detailed insights across 8 aspects of relationship harmony."
             icon={Users}
-            link="/kundli-milan"
+            link="/kundli-milan-calculator"
           />
           <CalculatorCard
             title="Atmakaraka"
@@ -110,7 +110,7 @@ function HomePage() {
             category="Spiritual"
             extraInfo="Calculate your Atmakaraka (soul planet) to gain insights into your spiritual purpose, karmic lessons, and life's deeper meaning according to Jyotish principles."
             icon={Sparkles}
-            link="/atmakaraka"
+            link="/atmakaraka-calculator"
           />
         </div>
 

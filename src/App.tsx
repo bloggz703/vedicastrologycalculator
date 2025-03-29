@@ -26,15 +26,15 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/rising-sign-calculator" element={<RisingSignCalculator />} />
-        <Route path="/moon-sign" element={<MoonSignCalculator />} />
-        <Route path="/sun-sign" element={<SunSignCalculator />} />
-        <Route path="/kundli-milan" element={<KundliMilanCalculator />} />
-        <Route path="/name-compatibility" element={<NameCompatibilityCalculator />} />
-        <Route path="/upapada-lagna" element={<UpapadaLagnaCalculator />} />
-        <Route path="/nakshatra" element={<NakshatraCalculator />} />
-        <Route path="/dasha" element={<DashaCalculator />} />
-        <Route path="/atmakaraka" element={<AtmakarakaCalculator />} />
-        <Route path="/yoga" element={<YogaCalculator />} />
+        <Route path="/moon-sign-calculator" element={<MoonSignCalculator />} />
+        <Route path="/sun-sign-calculator" element={<SunSignCalculator />} />
+        <Route path="/kundli-milan-calculator" element={<KundliMilanCalculator />} />
+        <Route path="/name-compatibility-calculator" element={<NameCompatibilityCalculator />} />
+        <Route path="/upapada-lagna-calculator" element={<UpapadaLagnaCalculator />} />
+        <Route path="/nakshatra-calculator" element={<NakshatraCalculator />} />
+        <Route path="/dasha-calculator" element={<DashaCalculator />} />
+        <Route path="/atmakaraka-calculator" element={<AtmakarakaCalculator />} />
+        <Route path="/yoga-calculator" element={<YogaCalculator />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
