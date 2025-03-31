@@ -7,12 +7,4 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  resolve: {
-    dedupe: ['react', 'react-dom', 'react-helmet-async'],
-  },
-  build: {
-    rollupOptions: {
-      external: ['react-helmet-async'],
-    },
-  },
 });

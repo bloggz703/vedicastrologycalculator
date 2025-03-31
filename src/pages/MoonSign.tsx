@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import LocationSearch from '../components/LocationSearch';
 import Navigation from '../components/Navigation';
 import { calculateMoonSign, getRulingPlanet, getSignCharacteristics } from '../utils/astroCalculations';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import "react-datepicker/dist/react-datepicker.css";
 
 interface Location {
