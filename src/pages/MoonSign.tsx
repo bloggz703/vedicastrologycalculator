@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import LocationSearch from '../components/LocationSearch';
 import Navigation from '../components/Navigation';
 import { calculateMoonSign, getRulingPlanet, getSignCharacteristics } from '../utils/astroCalculations';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import "react-datepicker/dist/react-datepicker.css";
 
 interface Location {
@@ -70,7 +70,7 @@ function MoonSignCalculator() {
       <Helmet>
         <title>Moon Sign Calculator</title>
         <meta name="description" content="Moon Sign Calculator: Calculate your Vedic moon sign based on birth time and location. Get detailed insights about your emotional nature and personality." />
-        <link rel="canonical" href="https://vedicastrologycalculator.com/moon-sign-calculator" />
+        <link rel="canonical" href="https://www.vedicastrologycalculator.com/moon-sign-calculator" />
       </Helmet>
       
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
