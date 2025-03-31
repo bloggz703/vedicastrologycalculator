@@ -69,7 +69,7 @@ function RisingSignCalculator() {
       <Helmet>
         <title>Rising Sign Calculator</title>
         <meta name="description" content="Calculate your rising sign (ascendant) using precise birth time and location. Get detailed insights about your rising sign's influence." />
-        <link rel="canonical" href="https://vedicastrologycalculator.com/rising-sign-calculator" />
+        <link rel="canonical" href="https://www.vedicastrologycalculator.com/rising-sign-calculator" />
       </Helmet>
       
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
