@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import LocationSearch from '../components/LocationSearch';
 import Navigation from '../components/Navigation';
 import { calculateKundliMilanScore, getCompatibilityInterpretation } from '../utils/kundliCalculations';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import "react-datepicker/dist/react-datepicker.css";
 
 interface Location {
@@ -291,7 +291,7 @@ function KundliMilanCalculator() {
       <Helmet>
         <title>Kundli Milan</title>
         <meta name="description" content="Kundli milan - Calculate marriage compatibility based on Vedic astrology. Get detailed analysis of relationship harmony across 8 key aspects." />
-        <link rel="canonical" href="https://vedicastrologycalculator.com/kundli-milan" />
+        <link rel="canonical" href="https://www.vedicastrologycalculator.com/kundli-milan" />
       </Helmet>
 
       <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white">
