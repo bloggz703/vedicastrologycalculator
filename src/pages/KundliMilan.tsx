@@ -370,42 +370,6 @@ function KundliMilanCalculator() {
           </section>
 
           <section className="max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              <details className="bg-white p-6 rounded-lg shadow-sm">
-                <summary className="text-sky-900 font-medium cursor-pointer">What is Kundli Milan?</summary>
-                <p className="mt-4 text-sky-600">
-                  Kundli Milan is a Vedic astrology practice that compares the birth charts (kundlis) of two individuals to assess their compatibility for marriage. It analyzes various aspects like mental harmony, temperament, longevity, and fortune to generate a comprehensive compatibility score.
-                </p>
-              </details>
-              <details className="bg-white p-6 rounded-lg shadow-sm">
-                <summary className="text-sky-900 font-medium cursor-pointer">How accurate is Kundli Milan?</summary>
-                <p className="mt-4 text-sky-600">
-                  Kundli Milan is considered highly accurate when based on precise birth details. The accuracy depends on having the correct birth time, date, and location for both individuals. The system has been used successfully for centuries in Vedic astrology to assess marital compatibility.
-                </p>
-              </details>
-              <details className="bg-white p-6 rounded-lg shadow-sm">
-                <summary className="text-sky-900 font-medium cursor-pointer">What is a good Kundli Milan score?</summary>
-                <p className="mt-4 text-sky-600">
-                  In Kundli Milan, the total score is out of 36 points (Gunas). A score of 18 or above is considered acceptable for marriage. Scores above 24 indicate good compatibility, while scores above 32 suggest excellent compatibility. However, even with lower scores, marriages can succeed with understanding and effort.
-                </p>
-              </details>
-              <details className="bg-white p-6 rounded-lg shadow-sm">
-                <summary className="text-sky-900 font-medium cursor-pointer">Do I need exact birth times for Kundli Milan?</summary>
-                <p className="mt-4 text-sky-600">
-                  Yes, exact birth times are crucial for accurate Kundli Milan calculations. Even a difference of a few minutes can change the planetary positions and affect the overall compatibility score. It's recommended to use birth times from official documents or birth certificates.
-                </p>
-              </details>
-              <details className="bg-white p-6 rounded-lg shadow-sm">
-                <summary className="text-sky-900 font-medium cursor-pointer">Can Kundli Milan predict the success of a marriage?</summary>
-                <p className="mt-4 text-sky-600">
-                  While Kundli Milan provides valuable insights into compatibility between partners, it should not be considered the sole determinant of marital success. A successful marriage also depends on factors like mutual understanding, commitment, and the effort both partners put into the relationship.
-                </p>
-              </details>
-            </div>
-          </section>
-
-          <section className="max-w-3xl mx-auto mb-12">
             <h2 className="text-2xl font-semibold text-sky-900 mb-6">Kundli Milan: The Ancient Art of Compatibility in Vedic Astrology</h2>
             <div className="text-sky-600">
               <p className="mb-4">
@@ -515,6 +479,43 @@ function KundliMilanCalculator() {
               </p>
             </div>
           </section>
+
+          <section className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">What is Kundli Milan?</summary>
+                <p className="mt-4 text-sky-600">
+                  Kundli Milan is a Vedic astrology practice that compares the birth charts (kundlis) of two individuals to assess their compatibility for marriage. It analyzes various aspects like mental harmony, temperament, longevity, and fortune to generate a comprehensive compatibility score.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">How accurate is Kundli Milan?</summary>
+                <p className="mt-4 text-sky-600">
+                  Kundli Milan is considered highly accurate when based on precise birth details. The accuracy depends on having the correct birth time, date, and location for both individuals. The system has been used successfully for centuries in Vedic astrology to assess marital compatibility.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">What is a good Kundli Milan score?</summary>
+                <p className="mt-4 text-sky-600">
+                  In Kundli Milan, the total score is out of 36 points (Gunas). A score of 18 or above is considered acceptable for marriage. Scores above 24 indicate good compatibility, while scores above 32 suggest excellent compatibility. However, even with lower scores, marriages can succeed with understanding and effort.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">Do I need exact birth times for Kundli Milan?</summary>
+                <p className="mt-4 text-sky-600">
+                  Yes, exact birth times are crucial for accurate Kundli Milan calculations. Even a difference of a few minutes can change the planetary positions and affect the overall compatibility score. It's recommended to use birth times from official documents or birth certificates.
+                </p>
+              </details>
+              <details className="bg-white p-6 rounded-lg shadow-sm">
+                <summary className="text-sky-900 font-medium cursor-pointer">Can Kundli Milan predict the success of a marriage?</summary>
+                <p className="mt-4 text-sky-600">
+                  While Kundli Milan provides valuable insights into compatibility between partners, it should not be considered the sole determinant of marital success. A successful marriage also depends on factors like mutual understanding, commitment, and the effort both partners put into the relationship.
+                </p>
+              </details>
+            </div>
+          </section>
+
         </main>
       </div>
     </>

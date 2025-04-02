@@ -192,36 +192,6 @@ function AtmakarakaCalculator() {
         </section>
 
         <section className="max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            <details className="bg-white p-6 rounded-lg shadow-sm">
-              <summary className="text-sky-900 font-medium cursor-pointer">How accurate is the Atmakaraka calculator?</summary>
-              <p className="mt-4 text-sky-600">
-                The Atmakaraka calculator uses precise astronomical calculations based on your birth details. The accuracy depends on the precision of your birth time and location information.
-              </p>
-            </details>
-            <details className="bg-white p-6 rounded-lg shadow-sm">
-              <summary className="text-sky-900 font-medium cursor-pointer">Can my Atmakaraka change over time?</summary>
-              <p className="mt-4 text-sky-600">
-                No, your Atmakaraka is determined at birth and remains constant throughout your life. It represents your soul's journey and core purpose.
-              </p>
-            </details>
-            <details className="bg-white p-6 rounded-lg shadow-sm">
-              <summary className="text-sky-900 font-medium cursor-pointer">How does the Atmakaraka differ from my Sun or Moon sign?</summary>
-              <p className="mt-4 text-sky-600">
-                While your Sun sign represents your basic personality and Moon sign reflects your emotional nature, the Atmakaraka represents your soul's purpose and highest spiritual potential.
-              </p>
-            </details>
-            <details className="bg-white p-6 rounded-lg shadow-sm">
-              <summary className="text-sky-900 font-medium cursor-pointer">How can I use my Atmakaraka information for spiritual growth?</summary>
-              <p className="mt-4 text-sky-600">
-                Understanding your Atmakaraka can help guide your spiritual practices, reveal karmic lessons, and illuminate your soul's purpose. Work with the qualities of your Atmakaraka planet in meditation and self-reflection.
-              </p>
-            </details>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto mb-12">
           <h2 className="text-2xl font-semibold text-sky-900 mb-6">Understanding the Atmakaraka Calculator: A Guide to Your Soul's Journey</h2>
           <div className="prose prose-sky max-w-none text-gray-600">
             <p className="mb-4">
@@ -306,6 +276,37 @@ function AtmakarakaCalculator() {
             </p>
           </div>
         </section>
+
+        <section className="max-w-3xl mx-auto mb-12">
+          <h2 className="text-2xl font-semibold text-sky-900 mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            <details className="bg-white p-6 rounded-lg shadow-sm">
+              <summary className="text-sky-900 font-medium cursor-pointer">How accurate is the Atmakaraka calculator?</summary>
+              <p className="mt-4 text-sky-600">
+                The Atmakaraka calculator uses precise astronomical calculations based on your birth details. The accuracy depends on the precision of your birth time and location information.
+              </p>
+            </details>
+            <details className="bg-white p-6 rounded-lg shadow-sm">
+              <summary className="text-sky-900 font-medium cursor-pointer">Can my Atmakaraka change over time?</summary>
+              <p className="mt-4 text-sky-600">
+                No, your Atmakaraka is determined at birth and remains constant throughout your life. It represents your soul's journey and core purpose.
+              </p>
+            </details>
+            <details className="bg-white p-6 rounded-lg shadow-sm">
+              <summary className="text-sky-900 font-medium cursor-pointer">How does the Atmakaraka differ from my Sun or Moon sign?</summary>
+              <p className="mt-4 text-sky-600">
+                While your Sun sign represents your basic personality and Moon sign reflects your emotional nature, the Atmakaraka represents your soul's purpose and highest spiritual potential.
+              </p>
+            </details>
+            <details className="bg-white p-6 rounded-lg shadow-sm">
+              <summary className="text-sky-900 font-medium cursor-pointer">How can I use my Atmakaraka information for spiritual growth?</summary>
+              <p className="mt-4 text-sky-600">
+                Understanding your Atmakaraka can help guide your spiritual practices, reveal karmic lessons, and illuminate your soul's purpose. Work with the qualities of your Atmakaraka planet in meditation and self-reflection.
+              </p>
+            </details>
+          </div>
+        </section>
+
       </main>
     </div>
   );
