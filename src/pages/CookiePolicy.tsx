@@ -76,13 +76,6 @@ function CookiePolicy() {
               We may update our Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last Updated" date.
             </p>
           </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-sky-900 mb-6">Contact Us</h2>
-            <p className="text-sky-600">
-              If you have any questions about our Cookie Policy, please contact us at privacy@vediccalculators.com.
-            </p>
-          </section>
         </div>
       </main>
     </div>
