@@ -77,28 +77,16 @@ function calculatePlanetaryPositions(birthDateTime: Date): { [key: string]: numb
   const epoch = new Date('2000-01-01T12:00:00Z');
   const daysSinceEpoch = (birthDateTime.getTime() - epoch.getTime()) / (24 * 60 * 60 * 1000);
   
-  // Calculate mean anomalies
-  const M_sun = (357.5291092 + 0.98560028 * daysSinceEpoch) % 360;
-  const M_moon = (134.9634114 + 13.06498999 * daysSinceEpoch) % 360;
-  const M_mars = (19.3870 + 0.524039 * daysSinceEpoch) % 360;
-  const M_jupiter = (20.020 + 0.083091 * daysSinceEpoch) % 360;
-  const M_saturn = (317.021 + 0.033459 * daysSinceEpoch) % 360;
-  const M_mercury = (168.6562 + 4.092335 * daysSinceEpoch) % 360;
-  const M_venus = (50.4161 + 1.602136 * daysSinceEpoch) % 360;
-
-  // Calculate equations of center
-  const C_sun = (1.9148 * Math.sin(M_sun * Math.PI / 180) + 0.0200 * Math.sin(2 * M_sun * Math.PI / 180)) % 360;
-  const C_moon = (6.2886 * Math.sin(M_moon * Math.PI / 180)) % 360;
-  
-  // Calculate true longitudes
+  // Simplified calculations for demonstration
+  // In a real implementation, these would be more precise astronomical calculations
   return {
-    'Sun': (280.46646 + M_sun + C_sun) % 360,
-    'Moon': (218.3164477 + M_moon + C_moon) % 360,
-    'Mars': (355.45332 + M_mars) % 360,
-    'Mercury': (168.6562 + M_mercury) % 360,
-    'Jupiter': (34.35151 + M_jupiter) % 360,
-    'Venus': (50.4161 + M_venus) % 360,
-    'Saturn': (50.0774 + M_saturn) % 360
+    'Sun': (daysSinceEpoch * 0.98564736 + 280.46646) % 360,
+    'Moon': (daysSinceEpoch * 13.17639648 + 218.3164477) % 360,
+    'Mars': (daysSinceEpoch * 0.524039 + 355.45332) % 360,
+    'Mercury': (daysSinceEpoch * 4.092335 + 168.6562) % 360,
+    'Jupiter': (daysSinceEpoch * 0.083091 + 34.35151) % 360,
+    'Venus': (daysSinceEpoch * 1.602136 + 50.4161) % 360,
+    'Saturn': (daysSinceEpoch * 0.033459 + 50.0774) % 360
   };
 }
 
@@ -108,86 +96,48 @@ function checkYogaFormation(
   yogaName: string,
   requirements: string
 ): number {
+  // Simplified yoga checking logic
+  // In a real implementation, this would include more complex astronomical calculations
   let strength = 0;
 
   switch (yogaName) {
-    case 'Raj Yoga': {
-      // Check for benefic planets in angles (1st, 4th, 7th, 10th houses)
+    case 'Raj Yoga':
+      // Check for benefic planets in angles
       const angles = [0, 90, 180, 270];
-      const benefics = ['Jupiter', 'Venus'];
-      
-      benefics.forEach(planet => {
-        angles.forEach(angle => {
-          const diff = Math.abs(positions[planet] - angle);
-          if (diff < 10 || diff > 350) {
-            strength += 4;
-          }
-        });
-      });
-      
-      // Check for mutual aspects between benefics
-      const jupiterVenusDiff = Math.abs(positions['Jupiter'] - positions['Venus']);
-      if (Math.abs(jupiterVenusDiff - 120) < 10) {
-        strength += 4;
-      }
+      strength = angles.some(angle => 
+        Math.abs(positions['Jupiter'] - angle) < 10 ||
+        Math.abs(positions['Venus'] - angle) < 10
+      ) ? 8 : 0;
       break;
-    }
 
-    case 'Dhana Yoga': {
-      // Check for benefics in wealth houses (2nd, 5th, 11th)
-      const wealthHouses = [30, 120, 300];
-      const benefics = ['Jupiter', 'Venus', 'Mercury'];
-      
-      benefics.forEach(planet => {
-        wealthHouses.forEach(house => {
-          const diff = Math.abs(positions[planet] - house);
-          if (diff < 10 || diff > 350) {
-            strength += 3;
-          }
-        });
-      });
+    case 'Dhana Yoga':
+      // Check for benefics in wealth houses
+      const wealthHouses = [60, 150, 330];
+      strength = wealthHouses.some(house =>
+        Math.abs(positions['Jupiter'] - house) < 10 ||
+        Math.abs(positions['Venus'] - house) < 10
+      ) ? 7 : 0;
       break;
-    }
 
-    case 'Gaja Kesari Yoga': {
+    case 'Gaja Kesari Yoga':
       // Check Jupiter-Moon relationship
       const moonJupiterDiff = Math.abs(positions['Moon'] - positions['Jupiter']);
-      if (moonJupiterDiff < 10 || Math.abs(moonJupiterDiff - 120) < 10) {
-        strength = 9;
-      }
+      strength = (moonJupiterDiff < 10 || Math.abs(moonJupiterDiff - 120) < 10) ? 9 : 0;
       break;
-    }
 
-    case 'Budh-Aditya Yoga': {
+    case 'Budh-Aditya Yoga':
       // Check Sun-Mercury conjunction
-      const sunMercuryDiff = Math.abs(positions['Sun'] - positions['Mercury']);
-      if (sunMercuryDiff < 12) {
-        strength = 8;
-      }
+      strength = Math.abs(positions['Sun'] - positions['Mercury']) < 12 ? 8 : 0;
       break;
-    }
 
-    case 'Amala Yoga': {
-      // Check benefics in 10th house without malefic aspects
+    case 'Amala Yoga':
+      // Check 10th house benefics
       const tenthHouse = 270;
-      const benefics = ['Jupiter', 'Venus', 'Mercury'];
-      const malefics = ['Mars', 'Saturn'];
-      
-      benefics.forEach(benefic => {
-        const diff = Math.abs(positions[benefic] - tenthHouse);
-        if (diff < 10 || diff > 350) {
-          strength = 7;
-          // Check for malefic aspects
-          malefics.forEach(malefic => {
-            const maleficDiff = Math.abs(positions[malefic] - tenthHouse);
-            if (maleficDiff < 10 || maleficDiff > 350) {
-              strength = 0;
-            }
-          });
-        }
-      });
+      strength = Math.abs(positions['Jupiter'] - tenthHouse) < 10 ? 7 : 0;
       break;
-    }
+
+    default:
+      strength = 0;
   }
 
   return strength;
